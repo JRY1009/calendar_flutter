@@ -18,7 +18,7 @@ class SharedPref {
   }
 
   static Future<void> setCurrentLanguage(String languageCode) => box.write(_currentLanguageKey, languageCode);
-  static String getCurrentLocal() => box.read(_currentLanguageKey) ?? '';
+  static String getCurrentLanguage() => box.read(_currentLanguageKey) ?? '';
 
   // /// set theme current type as light theme
   // static Future<void> setThemeIsLight(bool lightTheme) =>

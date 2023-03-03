@@ -5,6 +5,9 @@ class Strings {
 
   static const String changeTheme = 'change_theme';
   static const String changeLanguage = 'change_language';
+  static const String auto = 'auto';
+  static const String english = 'english';
+  static const String chineseSimplified = 'chineseSimplified';
 
   static const String urlNotFound = 'Url not found';
 }

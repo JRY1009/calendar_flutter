@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:www/storage/shared_pref.dart';
@@ -16,7 +18,6 @@ class LanguageService extends Translations {
     return _instance!;
   }
 
-  static Locale? systemLocale;
   static Locale? currentLocale;
   static Locale defaultLocale = supportedLanguages['zh_CN']!;
 
@@ -34,7 +35,11 @@ class LanguageService extends Translations {
 
   static isLanguageSupported(String languageCode) => supportedLanguages.keys.contains(languageCode);
 
-  static bool isLocaleSupported(Locale locale) {
+  static bool isLocaleSupported(Locale? locale) {
+    if (locale == null) {
+      return false;
+    }
+
     for (var supportedLocale in supportedLanguages.values) {
       if (supportedLocale.languageCode == locale.languageCode) {
         return true;
@@ -44,20 +49,32 @@ class LanguageService extends Translations {
   }
 
   static updateLanguage(String languageCode) async {
-    if(!isLanguageSupported(languageCode)) {
-      return;
+    if (!isLanguageSupported(languageCode)) {
+      //跟随系统
+      if (LanguageService.isLocaleSupported(ui.window.locale)) {
+        LanguageService.currentLocale =  ui.window.locale;
+      } else {
+        LanguageService.currentLocale = LanguageService.defaultLocale;
+      }
+
+    } else {
+      LanguageService.currentLocale = supportedLanguages[languageCode]!;
     }
     
     await SharedPref.setCurrentLanguage(languageCode);
-    LanguageService.currentLocale = supportedLanguages[languageCode]!;
-    Get.updateLocale(supportedLanguages[languageCode]!);
+    await Get.updateLocale(LanguageService.currentLocale!);
   }
 
   /// get current locale
   static Locale? getLocale () {
-    String langCode = SharedPref.getCurrentLocal();
+    String langCode = SharedPref.getCurrentLanguage();
     if (langCode.isEmpty){
-      return null;
+      //跟随系统
+      if (LanguageService.isLocaleSupported(ui.window.locale)) {
+        return ui.window.locale;
+      } else {
+        return LanguageService.defaultLocale;
+      }
     }
     return LanguageService.supportedLanguages[langCode]!;
   }

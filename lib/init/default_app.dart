@@ -108,19 +108,6 @@ class MyAppState extends State<MyApp> {
             locale: LanguageService.getLocale(), // app language
             supportedLocales: LanguageService.supportedLanguages.values,
             fallbackLocale: LanguageService.defaultLocale, // 添加一个回调语言选项，以备上面指定的语言翻译不存在
-            localeResolutionCallback: (Locale? locale, Iterable<Locale> supportedLocales) { //监听系统语言切换
-              LanguageService.currentLocale = LanguageService.getLocale();
-              if (LanguageService.currentLocale == null) { //跟随系统
-                if (LanguageService.isLocaleSupported(locale!)) {
-                  LanguageService.currentLocale =  locale;
-                } else {
-                  LanguageService.currentLocale = LanguageService.defaultLocale;
-                }
-              }
-
-              Get.updateLocale(LanguageService.currentLocale!);
-              return LanguageService.currentLocale;
-            },
 
           );
         },

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:www/res/language/strings_enum.dart';
+import 'package:www/routes/app_pages.dart';
 
 import '../controllers/main_controller.dart';
 
@@ -11,14 +12,17 @@ class MainPage extends GetView<MainController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("title"),
+        title: Text(Strings.hello.tr),
         centerTitle: true,
       ),
       //body: HomeView(),
 
       body: Container(
         alignment: Alignment.center,
-        child: Text(Strings.hello.tr)
+        child: InkWell(
+            onTap: () => Get.toNamed(Routes.LANGUAGE),
+            child: Text(Strings.changeLanguage.tr)
+        )
       ),
     );
   }

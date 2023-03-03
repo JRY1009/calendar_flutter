@@ -13,13 +13,7 @@ dependencies:
   library_base:
     path: library_base
 
-  cupertino_icons: ^1.0.2
-
   #dokit: ^0.8.2-nullsafety.10
-
-  get: ^4.6.5
-
-  get_storage:
 
 dev_dependencies:
   flutter_test:
