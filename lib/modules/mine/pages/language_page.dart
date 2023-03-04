@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:www/components/button/back_button.dart';
 import 'package:www/res/language/language_service.dart';
@@ -18,7 +19,7 @@ class LanguagePage extends StatelessWidget {
         // 对APP当前语言进行高亮显示
         style: TextStyle(
             color: SharedPref.getCurrentLanguage() == value ? Colors.blue : Colors.grey,
-            fontSize: 14
+            fontSize: 14.sp
         ),
       ),
       trailing: SharedPref.getCurrentLanguage() == value ? Icon(Icons.done, color: Colors.blue) : null,
@@ -35,19 +36,17 @@ class LanguagePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-
-            leading: const MyBackButton(),
             elevation: 0,
-            systemOverlayStyle: const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
+            leading: const MyBackButton(),
+            systemOverlayStyle: SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
             backgroundColor: Colors.white,
             centerTitle: true,
-            title: Text(Strings.changeLanguage.tr, style: const TextStyle(color: Colors.black, fontSize: 14))
+            title: Text(Strings.changeLanguage.tr, style: TextStyle(color: Colors.black, fontSize: 14.sp))
         ),
         body: Padding(
-
-            padding: const EdgeInsets.only(top: 8.0),
+            padding:  EdgeInsets.only(top: 8.h),
             child: ListView(
-                itemExtent: 48,
+                itemExtent: 48.h,
                 children: ListTile.divideTiles(
                     context: context,
                     color: Colors.grey,

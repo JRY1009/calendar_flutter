@@ -13,7 +13,11 @@ class MainPage extends GetView<MainController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarIconBrightness: Brightness.dark,
+            systemNavigationBarColor: Colors.white,
+            systemNavigationBarIconBrightness: Brightness.dark
+        ),
         title: Text(Strings.hello.tr),
         centerTitle: true,
       ),

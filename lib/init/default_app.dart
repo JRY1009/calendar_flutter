@@ -18,7 +18,7 @@ class DefaultApp {
 
     await initApp();
 
-    return const MyApp();
+    return MyApp();
   }
 
   //运行app
@@ -27,8 +27,7 @@ class DefaultApp {
 
     await initApp();
 
-    runApp(const MyApp());
-
+    runApp(MyApp());
   }
 
   //程序初始化操作
@@ -39,36 +38,18 @@ class DefaultApp {
     LogUtil.init(isDebug: kDebugMode);
 
     if (GetPlatform.isAndroid) {
-      // 透明状态栏
+      // 透明状态栏 白色导航栏
       const SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark,
           systemNavigationBarColor: Colors.white,
+          systemNavigationBarIconBrightness: Brightness.dark
       );
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }
   }
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  MyAppState createState() => MyAppState();
-}
-
-class MyAppState extends State<MyApp> {
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
