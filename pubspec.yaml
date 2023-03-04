@@ -10,8 +10,21 @@ dependencies:
   flutter:
     sdk: flutter
 
-  library_base:
-    path: library_base
+  # 国际化库
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  get: ^4.6.5
+
+  get_storage:
+
+  path_provider: ^2.0.13
+
+  decimal: ^2.3.2
+  # 屏幕适配方案 https://pub.dev/packages/flutter_screenutil
+  flutter_screenutil: ^5.6.1
 
   #dokit: ^0.8.2-nullsafety.10
 

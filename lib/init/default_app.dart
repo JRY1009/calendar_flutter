@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:library_base/utils/log_util.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:www/res/language/language_service.dart';
 import 'package:www/routes/app_pages.dart';
 import 'package:www/storage/shared_pref.dart';
+import 'package:www/utils/log_util.dart';
 
 //默认App的启动
 class DefaultApp {

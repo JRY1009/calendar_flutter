@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:library_base/utils/object_util.dart';
+import 'object_util.dart';
 import 'package:path_provider/path_provider.dart';
 
 ///文件路径工具类

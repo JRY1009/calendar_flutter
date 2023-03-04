@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:library_base/component/button/back_button.dart';
+import 'package:www/components/button/back_button.dart';
 import 'package:www/res/language/language_service.dart';
 import 'package:www/res/language/strings_enum.dart';
 import 'package:www/storage/shared_pref.dart';
