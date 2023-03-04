@@ -28,6 +28,7 @@ class DefaultApp {
     await initApp();
 
     runApp(const MyApp());
+
   }
 
   //程序初始化操作
@@ -40,9 +41,10 @@ class DefaultApp {
     if (GetPlatform.isAndroid) {
       // 透明状态栏
       const SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.white,
-        statusBarIconBrightness: Brightness.dark,
+          statusBarColor: Colors.transparent,
+          statusBarBrightness: Brightness.dark,
+          statusBarIconBrightness: Brightness.dark,
+          systemNavigationBarColor: Colors.white,
       );
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
     }

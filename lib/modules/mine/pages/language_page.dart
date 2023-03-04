@@ -35,9 +35,10 @@ class LanguagePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+
             leading: const MyBackButton(),
             elevation: 0,
-            systemOverlayStyle: const SystemUiOverlayStyle(statusBarBrightness: Brightness.light),
+            systemOverlayStyle: const SystemUiOverlayStyle(statusBarIconBrightness: Brightness.dark),
             backgroundColor: Colors.white,
             centerTitle: true,
             title: Text(Strings.changeLanguage.tr, style: const TextStyle(color: Colors.black, fontSize: 14))
